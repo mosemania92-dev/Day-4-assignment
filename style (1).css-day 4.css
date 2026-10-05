@@ -1,0 +1,107 @@
+/* Colours live in variables so the dark theme only redefines them */
+:root {
+  --bg: #f1f4f8;
+  --card: #ffffff;
+  --text: #1f2933;
+  --border: #8a9bb0;
+  --accent: #2f7de1;
+  --accent-hover: #1b5fb4;
+  --button-text: #ffffff;
+  --warning-colour: #c2570c;
+  --over-colour: #d00000;
+}
+
+body.dark {
+  --bg: #121820;
+  --card: #1e2733;
+  --text: #e6edf5;
+  --border: #4a5a6e;
+  --accent: #5ea1f2;
+  --accent-hover: #86b9f7;
+  --button-text: #0b1118;
+  --warning-colour: #ffa94d;
+  --over-colour: #ff6b6b;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+main {
+  max-width: 600px;
+  margin: 32px auto;
+  padding: 24px;
+  background-color: var(--card);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font: inherit;
+  color: var(--text);
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: 2px solid var(--accent);
+}
+
+p {
+  margin: 8px 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  font: inherit;
+  color: var(--button-text);
+  background-color: var(--accent);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover,
+button:focus {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* Character counter states (.over comes last so it wins over .warning) */
+.warning {
+  color: var(--warning-colour);
+}
+
+.over {
+  color: var(--over-colour);
+  font-weight: bold;
+}
